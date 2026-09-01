@@ -39,7 +39,7 @@ function getDayType(day) {
 }
 
 
-// console.log(getDayType("Tangail"));
+
 
 
 // Question No. 3
@@ -59,12 +59,33 @@ function validateUsername(username) {
     }
 }
 
-// console.log(validateUsername("nahid123"));
-// console.log(validateUsername("na"));
-// console.log(validateUsername("n a"));
-// console.log(validateUsername("nahid"));
-// console.log(validateUsername("nahid islam"));
-// console.log(validateUsername("superadmin99"));
-// console.log(validateUsername("Admin_Rahim"));
 
 
+
+// Question No. 4
+
+// Question No. 4
+
+function getCngFare(distance, isNight = false, waitingMinutes = 0) {
+    let fare = 50;
+
+    if (distance > 2) {
+        fare = fare + (distance - 2) * 15;
+    }
+
+    fare = fare + waitingMinutes * 2;
+
+    if (isNight) {
+        fare = fare + (fare * 20 / 100);
+    }
+
+    return fare;
+}
+
+console.log(getCngFare(2));             // 50
+console.log(getCngFare(1));             // 50
+console.log(getCngFare(5));             // 95
+console.log(getCngFare(10));            // 170
+console.log(getCngFare(5, false, 10));  // 115
+console.log(getCngFare(5, true));       // 114
+console.log(getCngFare(5, true, 10));   // 138
