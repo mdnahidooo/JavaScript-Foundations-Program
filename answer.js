@@ -82,10 +82,36 @@ function getCngFare(distance, isNight = false, waitingMinutes = 0) {
     return fare;
 }
 
-console.log(getCngFare(2));             // 50
-console.log(getCngFare(1));             // 50
-console.log(getCngFare(5));             // 95
-console.log(getCngFare(10));            // 170
-console.log(getCngFare(5, false, 10));  // 115
-console.log(getCngFare(5, true));       // 114
-console.log(getCngFare(5, true, 10));   // 138
+
+
+
+// Question No. 5
+
+const getChaseVerdict = (target, scored, ballsLeft) => {
+    let runsNeeded = target - scored;
+
+    if (runsNeeded <= 0) {
+        return "Won";
+    }
+
+    if (ballsLeft <= 0) {
+        return "Lost";
+    }
+
+    let requiredRate = (runsNeeded / ballsLeft) * 6;
+    let verdict;
+
+    if (requiredRate <= 6) {
+        verdict = "Comfortable";
+    }
+    else if (requiredRate <= 12) {
+        verdict = "Tough";
+    }
+    else {
+        verdict = "Almost Impossible";
+    }
+
+    return `Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}`;
+};
+
+
